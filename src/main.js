@@ -10,7 +10,12 @@ import './assets/css/global.css'
 import axios from 'axios'
 
 // 设置axios的根路径，配置请求的根路径
-axios.defaults.baseURL = 'http://47.115.124.102:8888/api/private/v1/'
+axios.defaults.baseURL = 'http://timemeetyou.com:8889/api/private/v1/'
+// 设置拦截器
+axios.interceptors.request.use(config => {
+  config.headers.Authorization = window.sessionStorage.getItem('token')
+  return config
+})
 
 // 挂载到vue的原型对象上
 Vue.prototype.$http = axios

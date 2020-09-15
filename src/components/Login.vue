@@ -13,14 +13,14 @@
         label-width="0px"
         class="login_form"
       >
-        <!--        用户名-->
+        <!-- 用户名-->
         <el-form-item prop="username">
           <el-input
             v-model="loginForm.username"
             prefix-icon="iconfont icon-user"
           />
         </el-form-item>
-        <!--        密码-->
+        <!-- 密码-->
         <el-form-item prop="password">
           <el-input
             v-model="loginForm.password"
@@ -28,7 +28,7 @@
             type="password"
           />
         </el-form-item>
-        <!--        按钮区域-->
+        <!--按钮区域-->
         <el-form-item class="btns">
           <el-button type="primary" @click="login">登录</el-button>
           <el-button type="info" @click="resetLoginForm">重置</el-button>
@@ -89,7 +89,7 @@ export default {
         if (!valid) {
           return
         }
-        // 如果方法返回的是promise，则可以用await简化操作，同时在箭头函数前添加async
+        // 如果方法返回的是promise，则可以用await简化操作，同时在函数前添加async
         // 结构result中的data对象，重命名为res，data中是真实的服务器返回对象
         const { data: res } = await this.$http.post('login', this.loginForm)
         if (res.meta.status !== 200) {
